@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a5bb4c1d50e495dba8247f5983f7858" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="GestionMagasinModel.Article" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Authentification" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Categorie" Width="1.5" PointX="0.75" PointY="18.125" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Commande" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Entrée" Width="1.5" PointX="8.25" PointY="10.125" />
+        <EntityTypeShape EntityType="GestionMagasinModel.EtabArt" Width="1.5" PointX="8.25" PointY="18.75" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Etablissement" Width="1.5" PointX="3.75" PointY="6.375" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Famille" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Fornisseur" Width="1.5" PointX="6" PointY="1.875" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Inventaire" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="GestionMagasinModel.LigneCommande" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="GestionMagasinModel.LignesTransfere" Width="1.5" PointX="5.25" PointY="18.375" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Magasin" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="GestionMagasinModel.PointConsommation" Width="1.5" PointX="9" PointY="21.5" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Reception" Width="1.5" PointX="8.25" PointY="14.125" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Sortie" Width="1.5" PointX="11.25" PointY="14.125" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Stock" Width="1.5" PointX="5.25" PointY="14" />
+        <EntityTypeShape EntityType="GestionMagasinModel.Transfert" Width="1.5" PointX="3" PointY="21" />
+        <EntityTypeShape EntityType="GestionMagasinModel.TypesTransfert" Width="1.5" PointX="0.75" PointY="21.875" />
+        <EntityTypeShape EntityType="GestionMagasinModel.UnitéMesures" Width="1.5" PointX="0.75" PointY="11.75" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Articles__Catego__4E88ABD4" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Articles__Famile__4D94879B" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Articles__Unite__4CA06362" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Entrée__CodeArti__6A30C649" />
+        <AssociationConnector Association="GestionMagasinModel.FK__EtabArt__codeArt__17036CC0" />
+        <AssociationConnector Association="GestionMagasinModel.FK__LigneComm__CodeA__52593CB8" />
+        <AssociationConnector Association="GestionMagasinModel.FK__LignesTra__CodeA__5BE2A6F2" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Reception__CodeA__60A75C0F" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Sortie__CodeArti__6477ECF3" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Stocks__CodeArti__6E01572D" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Commandes__CodeF__48CFD27E" />
+        <AssociationConnector Association="GestionMagasinModel.FK__LigneComm__CodeC__5165187F" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Reception__CodeC__5FB337D6" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Entrée__CodeFour__6B24EA82" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Entrée__CodeMaga__693CA210" />
+        <AssociationConnector Association="GestionMagasinModel.FK__EtabArt__codeEta__160F4887" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Transfert__CodeE__59FA5E80" />
+        <AssociationConnector Association="GestionMagasinModel.FK_Magasins_Magasins" />
+        <AssociationConnector Association="GestionMagasinModel.FK_PointConsommation_Etablissement" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Reception__CodeF__619B8048" />
+        <AssociationConnector Association="GestionMagasinModel.FK__LignesTra__CodeT__5CD6CB2B" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Sortie__CodeMaga__66603565" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Stocks__CodeMaga__6EF57B66" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Transfert__CodeM__5812160E" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Sortie__CodePoin__656C112C" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Transfert__CodeP__59063A47" />
+        <AssociationConnector Association="GestionMagasinModel.FK__Transfert__TypeT__571DF1D5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

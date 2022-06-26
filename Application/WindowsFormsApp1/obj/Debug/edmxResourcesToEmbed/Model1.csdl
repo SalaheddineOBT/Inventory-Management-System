@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TextileModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Authentification">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TblArticle">
+    <Key>
+      <PropertyRef Name="CodeArticle" />
+    </Key>
+    <Property Name="CodeArticle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Unite" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Famile" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CodeCategorie" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="TblCategorie" Relationship="Self.FK__TblArticl__CodeC__4D94879B" FromRole="TblArticles" ToRole="TblCategorie" />
+    <NavigationProperty Name="TblFamille" Relationship="Self.FK__TblArticl__Famil__4CA06362" FromRole="TblArticles" ToRole="TblFamilles" />
+    <NavigationProperty Name="TblUnitéMesures" Relationship="Self.FK__TblArticl__Unite__4BAC3F29" FromRole="TblArticles" ToRole="TblUnitéMesures" />
+    <NavigationProperty Name="TblLigneCommandes" Relationship="Self.FK__TblLigneC__CodeA__5165187F" FromRole="TblArticles" ToRole="TblLigneCommandes" />
+    <NavigationProperty Name="TblLignesTransferes" Relationship="Self.FK__TblLignes__CodeA__5DCAEF64" FromRole="TblArticles" ToRole="TblLignesTransfere" />
+    <NavigationProperty Name="TblReceptions" Relationship="Self.FK__TblRecept__CodeA__628FA481" FromRole="TblArticles" ToRole="TblReceptions" />
+    <NavigationProperty Name="TblSorties" Relationship="Self.FK__TblSortie__CodeA__66603565" FromRole="TblArticles" ToRole="TblSortie" />
+    <NavigationProperty Name="TblStock" Relationship="Self.FK_TblStock_TblArticles" FromRole="TblArticles" ToRole="TblStock" />
+  </EntityType>
+  <EntityType Name="TblCategorie">
+    <Key>
+      <PropertyRef Name="CODE" />
+    </Key>
+    <Property Name="CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LIBELLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblArticles" Relationship="Self.FK__TblArticl__CodeC__4D94879B" FromRole="TblCategorie" ToRole="TblArticles" />
+  </EntityType>
+  <EntityType Name="TblCommande">
+    <Key>
+      <PropertyRef Name="CodeCommande" />
+    </Key>
+    <Property Name="CodeCommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeFournisseur" Type="Int32" />
+    <Property Name="DateCommande" Type="DateTime" Precision="3" />
+    <Property Name="dateLivraison" Type="DateTime" Precision="3" />
+    <Property Name="EtatCommande" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MHT" Type="Double" />
+    <Property Name="Remise" Type="Double" />
+    <Property Name="MontantNet" Type="Double" />
+    <Property Name="TVA" Type="Double" />
+    <Property Name="PortEmballage" Type="Double" />
+    <Property Name="MTVA" Type="Double" />
+    <NavigationProperty Name="TblFornisseur" Relationship="Self.FK__TblComman__CodeF__48CFD27E" FromRole="TblCommandes" ToRole="TblFornisseurs" />
+    <NavigationProperty Name="TblLigneCommandes" Relationship="Self.FK__TblLigneC__CodeC__5070F446" FromRole="TblCommandes" ToRole="TblLigneCommandes" />
+    <NavigationProperty Name="TblReceptions" Relationship="Self.FK__TblRecept__CodeC__619B8048" FromRole="TblCommandes" ToRole="TblReceptions" />
+  </EntityType>
+  <EntityType Name="TblEntrée">
+    <Key>
+      <PropertyRef Name="CodeEntrée" />
+    </Key>
+    <Property Name="CodeEntrée" Type="Int32" Nullable="false" />
+    <Property Name="DateEntrée" Type="DateTime" Precision="3" />
+    <Property Name="QTEEntrée" Type="Int32" />
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="CodeFournisseur" Type="Int32" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblFornisseur" Relationship="Self.FK__TblEntrée__CodeF__6C190EBB" FromRole="TblEntrée" ToRole="TblFornisseurs" />
+    <NavigationProperty Name="TblMagasin" Relationship="Self.FK__TblEntrée__CodeM__6B24EA82" FromRole="TblEntrée" ToRole="TblMagasins" />
+  </EntityType>
+  <EntityType Name="TblEtablissement">
+    <Key>
+      <PropertyRef Name="codeEtab" />
+    </Key>
+    <Property Name="codeEtab" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="designation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TEL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Ville" Type="Int32" />
+    <NavigationProperty Name="TblTransferts" Relationship="Self.FK__TblTransf__C_Eta__5AEE82B9" FromRole="TblEtablissement" ToRole="TblTransferts" />
+  </EntityType>
+  <EntityType Name="TblFamille">
+    <Key>
+      <PropertyRef Name="CodeFamile" />
+    </Key>
+    <Property Name="CodeFamile" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblArticles" Relationship="Self.FK__TblArticl__Famil__4CA06362" FromRole="TblFamilles" ToRole="TblArticles" />
+  </EntityType>
+  <EntityType Name="TblFornisseur">
+    <Key>
+      <PropertyRef Name="IdFornisseur" />
+    </Key>
+    <Property Name="IdFornisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Adress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RaisonSocial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Tele" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Ville" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblCommandes" Relationship="Self.FK__TblComman__CodeF__48CFD27E" FromRole="TblFornisseurs" ToRole="TblCommandes" />
+    <NavigationProperty Name="TblEntrée" Relationship="Self.FK__TblEntrée__CodeF__6C190EBB" FromRole="TblFornisseurs" ToRole="TblEntrée" />
+    <NavigationProperty Name="TblReceptions" Relationship="Self.FK__TblRecept__CodeF__6383C8BA" FromRole="TblFornisseurs" ToRole="TblReceptions" />
+  </EntityType>
+  <EntityType Name="TblLigneCommande">
+    <Key>
+      <PropertyRef Name="CodeLign" />
+    </Key>
+    <Property Name="CodeLign" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeCommande" Type="Int32" />
+    <Property Name="CodeArticle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Montant" Type="Double" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Qte" Type="Int32" />
+    <Property Name="Prix" Type="Double" />
+    <NavigationProperty Name="TblArticle" Relationship="Self.FK__TblLigneC__CodeA__5165187F" FromRole="TblLigneCommandes" ToRole="TblArticles" />
+    <NavigationProperty Name="TblCommande" Relationship="Self.FK__TblLigneC__CodeC__5070F446" FromRole="TblLigneCommandes" ToRole="TblCommandes" />
+  </EntityType>
+  <EntityType Name="TblLignesTransfere">
+    <Key>
+      <PropertyRef Name="codeLigne" />
+    </Key>
+    <Property Name="codeLigne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeArticle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CodeTrans" Type="Int32" />
+    <Property Name="QuantityNeuve" Type="Int32" />
+    <Property Name="QuantityReemploi" Type="Int32" />
+    <Property Name="ValeurTransfert" Type="Double" />
+    <NavigationProperty Name="TblArticle" Relationship="Self.FK__TblLignes__CodeA__5DCAEF64" FromRole="TblLignesTransfere" ToRole="TblArticles" />
+    <NavigationProperty Name="TblTransfert" Relationship="Self.FK__TblLignes__CodeT__5EBF139D" FromRole="TblLignesTransfere" ToRole="TblTransferts" />
+  </EntityType>
+  <EntityType Name="TblMagasin">
+    <Key>
+      <PropertyRef Name="CodeMagasin" />
+    </Key>
+    <Property Name="CodeMagasin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libellé" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblEntrée" Relationship="Self.FK__TblEntrée__CodeM__6B24EA82" FromRole="TblMagasins" ToRole="TblEntrée" />
+    <NavigationProperty Name="TblSorties" Relationship="Self.FK__TblSortie__CodeM__68487DD7" FromRole="TblMagasins" ToRole="TblSortie" />
+    <NavigationProperty Name="TblTransferts" Relationship="Self.FK__TblTransf__C_Mag__59063A47" FromRole="TblMagasins" ToRole="TblTransferts" />
+    <NavigationProperty Name="TblStocks" Relationship="Self.FK_TblStock_TblMagasins" FromRole="TblMagasins" ToRole="TblStock" />
+  </EntityType>
+  <EntityType Name="TblPointConsommation">
+    <Key>
+      <PropertyRef Name="NumCons" />
+    </Key>
+    <Property Name="NumCons" Type="Int32" Nullable="false" />
+    <Property Name="Libellé" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Enseignant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="dateC" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TblSorties" Relationship="Self.FK__TblSortie__CodeP__6754599E" FromRole="TblPointConsommation" ToRole="TblSortie" />
+    <NavigationProperty Name="TblTransferts" Relationship="Self.FK__TblTransf__C_Poi__59FA5E80" FromRole="TblPointConsommation" ToRole="TblTransferts" />
+  </EntityType>
+  <EntityType Name="TblReception">
+    <Key>
+      <PropertyRef Name="numReception" />
+    </Key>
+    <Property Name="numReception" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeCommande" Type="Int32" />
+    <Property Name="CodeArticle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CodeFournisseur" Type="Int32" />
+    <Property Name="DateReception" Type="DateTime" Precision="3" />
+    <Property Name="QTELivree" Type="Int32" />
+    <Property Name="R_A_L" Type="Int32" />
+    <Property Name="Montant" Type="Double" />
+    <NavigationProperty Name="TblArticle" Relationship="Self.FK__TblRecept__CodeA__628FA481" FromRole="TblReceptions" ToRole="TblArticles" />
+    <NavigationProperty Name="TblCommande" Relationship="Self.FK__TblRecept__CodeC__619B8048" FromRole="TblReceptions" ToRole="TblCommandes" />
+    <NavigationProperty Name="TblFornisseur" Relationship="Self.FK__TblRecept__CodeF__6383C8BA" FromRole="TblReceptions" ToRole="TblFornisseurs" />
+  </EntityType>
+  <EntityType Name="TblSortie">
+    <Key>
+      <PropertyRef Name="CodeSortie" />
+    </Key>
+    <Property Name="CodeSortie" Type="Int32" Nullable="false" />
+    <Property Name="DateSortie" Type="DateTime" Precision="3" />
+    <Property Name="CodeArticle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CodePointConsommation" Type="Int32" />
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="QTESortie" Type="Int32" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblArticle" Relationship="Self.FK__TblSortie__CodeA__66603565" FromRole="TblSortie" ToRole="TblArticles" />
+    <NavigationProperty Name="TblMagasin" Relationship="Self.FK__TblSortie__CodeM__68487DD7" FromRole="TblSortie" ToRole="TblMagasins" />
+    <NavigationProperty Name="TblPointConsommation" Relationship="Self.FK__TblSortie__CodeP__6754599E" FromRole="TblSortie" ToRole="TblPointConsommation" />
+  </EntityType>
+  <EntityType Name="TblStock">
+    <Key>
+      <PropertyRef Name="codeArticle" />
+    </Key>
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="codeArticle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prix" Type="Double" />
+    <Property Name="qteEntré" Type="Int32" />
+    <Property Name="qteSortie" Type="Int32" />
+    <Property Name="qteActuel" Type="Int32" />
+    <Property Name="valeurEntre" Type="Double" />
+    <Property Name="valeurSortir" Type="Double" />
+    <Property Name="RemainingStock" Type="Int32" />
+    <Property Name="statu" Type="Boolean" />
+    <NavigationProperty Name="TblArticle" Relationship="Self.FK_TblStock_TblArticles" FromRole="TblStock" ToRole="TblArticles" />
+    <NavigationProperty Name="TblMagasin" Relationship="Self.FK_TblStock_TblMagasins" FromRole="TblStock" ToRole="TblMagasins" />
+  </EntityType>
+  <EntityType Name="TblTransfert">
+    <Key>
+      <PropertyRef Name="CodeTrans" />
+    </Key>
+    <Property Name="CodeTrans" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTrans" Type="DateTime" Precision="3" />
+    <Property Name="TypeTransfer" Type="Int32" />
+    <Property Name="C_Magasin" Type="Int32" />
+    <Property Name="C_PointCons" Type="Int32" />
+    <Property Name="C_Etablissement" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MontantHT" Type="Double" />
+    <NavigationProperty Name="TblEtablissement" Relationship="Self.FK__TblTransf__C_Eta__5AEE82B9" FromRole="TblTransferts" ToRole="TblEtablissement" />
+    <NavigationProperty Name="TblLignesTransferes" Relationship="Self.FK__TblLignes__CodeT__5EBF139D" FromRole="TblTransferts" ToRole="TblLignesTransfere" />
+    <NavigationProperty Name="TblMagasin" Relationship="Self.FK__TblTransf__C_Mag__59063A47" FromRole="TblTransferts" ToRole="TblMagasins" />
+    <NavigationProperty Name="TblPointConsommation" Relationship="Self.FK__TblTransf__C_Poi__59FA5E80" FromRole="TblTransferts" ToRole="TblPointConsommation" />
+    <NavigationProperty Name="TblTypesTransfert" Relationship="Self.FK__TblTransf__TypeT__5812160E" FromRole="TblTransferts" ToRole="TblTypesTransferts" />
+  </EntityType>
+  <EntityType Name="TblTypesTransfert">
+    <Key>
+      <PropertyRef Name="CodeType" />
+    </Key>
+    <Property Name="CodeType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libellé" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblTransferts" Relationship="Self.FK__TblTransf__TypeT__5812160E" FromRole="TblTypesTransferts" ToRole="TblTransferts" />
+  </EntityType>
+  <EntityType Name="TblUnitéMesures">
+    <Key>
+      <PropertyRef Name="CodeUnite" />
+    </Key>
+    <Property Name="CodeUnite" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Désignation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblArticles" Relationship="Self.FK__TblArticl__Unite__4BAC3F29" FromRole="TblUnitéMesures" ToRole="TblArticles" />
+  </EntityType>
+  <EntityType Name="TblVille">
+    <Key>
+      <PropertyRef Name="CodeV" />
+    </Key>
+    <Property Name="CodeV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomV" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__TblArticl__CodeC__4D94879B">
+    <End Role="TblCategorie" Type="Self.TblCategorie" Multiplicity="0..1" />
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCategorie">
+        <PropertyRef Name="CODE" />
+      </Principal>
+      <Dependent Role="TblArticles">
+        <PropertyRef Name="CodeCategorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblArticl__Famil__4CA06362">
+    <End Role="TblFamilles" Type="Self.TblFamille" Multiplicity="0..1" />
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblFamilles">
+        <PropertyRef Name="CodeFamile" />
+      </Principal>
+      <Dependent Role="TblArticles">
+        <PropertyRef Name="Famile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblArticl__Unite__4BAC3F29">
+    <End Role="TblUnitéMesures" Type="Self.TblUnitéMesures" Multiplicity="0..1" />
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblUnitéMesures">
+        <PropertyRef Name="CodeUnite" />
+      </Principal>
+      <Dependent Role="TblArticles">
+        <PropertyRef Name="Unite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblLigneC__CodeA__5165187F">
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="0..1" />
+    <End Role="TblLigneCommandes" Type="Self.TblLigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblArticles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="TblLigneCommandes">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblLignes__CodeA__5DCAEF64">
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="0..1" />
+    <End Role="TblLignesTransfere" Type="Self.TblLignesTransfere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblArticles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="TblLignesTransfere">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblRecept__CodeA__628FA481">
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="0..1" />
+    <End Role="TblReceptions" Type="Self.TblReception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblArticles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="TblReceptions">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblSortie__CodeA__66603565">
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="0..1" />
+    <End Role="TblSortie" Type="Self.TblSortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblArticles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="TblSortie">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblStock_TblArticles">
+    <End Role="TblArticles" Type="Self.TblArticle" Multiplicity="1" />
+    <End Role="TblStock" Type="Self.TblStock" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TblArticles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="TblStock">
+        <PropertyRef Name="codeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblComman__CodeF__48CFD27E">
+    <End Role="TblFornisseurs" Type="Self.TblFornisseur" Multiplicity="0..1" />
+    <End Role="TblCommandes" Type="Self.TblCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblFornisseurs">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="TblCommandes">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblLigneC__CodeC__5070F446">
+    <End Role="TblCommandes" Type="Self.TblCommande" Multiplicity="0..1" />
+    <End Role="TblLigneCommandes" Type="Self.TblLigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCommandes">
+        <PropertyRef Name="CodeCommande" />
+      </Principal>
+      <Dependent Role="TblLigneCommandes">
+        <PropertyRef Name="CodeCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblRecept__CodeC__619B8048">
+    <End Role="TblCommandes" Type="Self.TblCommande" Multiplicity="0..1" />
+    <End Role="TblReceptions" Type="Self.TblReception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCommandes">
+        <PropertyRef Name="CodeCommande" />
+      </Principal>
+      <Dependent Role="TblReceptions">
+        <PropertyRef Name="CodeCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblEntrée__CodeF__6C190EBB">
+    <End Role="TblFornisseurs" Type="Self.TblFornisseur" Multiplicity="0..1" />
+    <End Role="TblEntrée" Type="Self.TblEntrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblFornisseurs">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="TblEntrée">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblEntrée__CodeM__6B24EA82">
+    <End Role="TblMagasins" Type="Self.TblMagasin" Multiplicity="0..1" />
+    <End Role="TblEntrée" Type="Self.TblEntrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMagasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="TblEntrée">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblTransf__C_Eta__5AEE82B9">
+    <End Role="TblEtablissement" Type="Self.TblEtablissement" Multiplicity="0..1" />
+    <End Role="TblTransferts" Type="Self.TblTransfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblEtablissement">
+        <PropertyRef Name="codeEtab" />
+      </Principal>
+      <Dependent Role="TblTransferts">
+        <PropertyRef Name="C_Etablissement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblRecept__CodeF__6383C8BA">
+    <End Role="TblFornisseurs" Type="Self.TblFornisseur" Multiplicity="0..1" />
+    <End Role="TblReceptions" Type="Self.TblReception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblFornisseurs">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="TblReceptions">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblLignes__CodeT__5EBF139D">
+    <End Role="TblTransferts" Type="Self.TblTransfert" Multiplicity="0..1" />
+    <End Role="TblLignesTransfere" Type="Self.TblLignesTransfere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblTransferts">
+        <PropertyRef Name="CodeTrans" />
+      </Principal>
+      <Dependent Role="TblLignesTransfere">
+        <PropertyRef Name="CodeTrans" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblSortie__CodeM__68487DD7">
+    <End Role="TblMagasins" Type="Self.TblMagasin" Multiplicity="0..1" />
+    <End Role="TblSortie" Type="Self.TblSortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMagasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="TblSortie">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblTransf__C_Mag__59063A47">
+    <End Role="TblMagasins" Type="Self.TblMagasin" Multiplicity="0..1" />
+    <End Role="TblTransferts" Type="Self.TblTransfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMagasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="TblTransferts">
+        <PropertyRef Name="C_Magasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblStock_TblMagasins">
+    <End Role="TblMagasins" Type="Self.TblMagasin" Multiplicity="0..1" />
+    <End Role="TblStock" Type="Self.TblStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMagasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="TblStock">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblSortie__CodeP__6754599E">
+    <End Role="TblPointConsommation" Type="Self.TblPointConsommation" Multiplicity="0..1" />
+    <End Role="TblSortie" Type="Self.TblSortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPointConsommation">
+        <PropertyRef Name="NumCons" />
+      </Principal>
+      <Dependent Role="TblSortie">
+        <PropertyRef Name="CodePointConsommation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblTransf__C_Poi__59FA5E80">
+    <End Role="TblPointConsommation" Type="Self.TblPointConsommation" Multiplicity="0..1" />
+    <End Role="TblTransferts" Type="Self.TblTransfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPointConsommation">
+        <PropertyRef Name="NumCons" />
+      </Principal>
+      <Dependent Role="TblTransferts">
+        <PropertyRef Name="C_PointCons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblTransf__TypeT__5812160E">
+    <End Role="TblTypesTransferts" Type="Self.TblTypesTransfert" Multiplicity="0..1" />
+    <End Role="TblTransferts" Type="Self.TblTransfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblTypesTransferts">
+        <PropertyRef Name="CodeType" />
+      </Principal>
+      <Dependent Role="TblTransferts">
+        <PropertyRef Name="TypeTransfer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TextileEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Authentifications" EntityType="Self.Authentification" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TblArticles" EntityType="Self.TblArticle" />
+    <EntitySet Name="TblCategories" EntityType="Self.TblCategorie" />
+    <EntitySet Name="TblCommandes" EntityType="Self.TblCommande" />
+    <EntitySet Name="TblEntrée" EntityType="Self.TblEntrée" />
+    <EntitySet Name="TblEtablissements" EntityType="Self.TblEtablissement" />
+    <EntitySet Name="TblFamilles" EntityType="Self.TblFamille" />
+    <EntitySet Name="TblFornisseurs" EntityType="Self.TblFornisseur" />
+    <EntitySet Name="TblLigneCommandes" EntityType="Self.TblLigneCommande" />
+    <EntitySet Name="TblLignesTransferes" EntityType="Self.TblLignesTransfere" />
+    <EntitySet Name="TblMagasins" EntityType="Self.TblMagasin" />
+    <EntitySet Name="TblPointConsommations" EntityType="Self.TblPointConsommation" />
+    <EntitySet Name="TblReceptions" EntityType="Self.TblReception" />
+    <EntitySet Name="TblSorties" EntityType="Self.TblSortie" />
+    <EntitySet Name="TblStocks" EntityType="Self.TblStock" />
+    <EntitySet Name="TblTransferts" EntityType="Self.TblTransfert" />
+    <EntitySet Name="TblTypesTransferts" EntityType="Self.TblTypesTransfert" />
+    <EntitySet Name="TblUnitéMesures" EntityType="Self.TblUnitéMesures" />
+    <EntitySet Name="TblVilles" EntityType="Self.TblVille" />
+    <AssociationSet Name="FK__TblArticl__CodeC__4D94879B" Association="Self.FK__TblArticl__CodeC__4D94879B">
+      <End Role="TblCategorie" EntitySet="TblCategories" />
+      <End Role="TblArticles" EntitySet="TblArticles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblArticl__Famil__4CA06362" Association="Self.FK__TblArticl__Famil__4CA06362">
+      <End Role="TblFamilles" EntitySet="TblFamilles" />
+      <End Role="TblArticles" EntitySet="TblArticles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblArticl__Unite__4BAC3F29" Association="Self.FK__TblArticl__Unite__4BAC3F29">
+      <End Role="TblUnitéMesures" EntitySet="TblUnitéMesures" />
+      <End Role="TblArticles" EntitySet="TblArticles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblLigneC__CodeA__5165187F" Association="Self.FK__TblLigneC__CodeA__5165187F">
+      <End Role="TblArticles" EntitySet="TblArticles" />
+      <End Role="TblLigneCommandes" EntitySet="TblLigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblLignes__CodeA__5DCAEF64" Association="Self.FK__TblLignes__CodeA__5DCAEF64">
+      <End Role="TblArticles" EntitySet="TblArticles" />
+      <End Role="TblLignesTransfere" EntitySet="TblLignesTransferes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblRecept__CodeA__628FA481" Association="Self.FK__TblRecept__CodeA__628FA481">
+      <End Role="TblArticles" EntitySet="TblArticles" />
+      <End Role="TblReceptions" EntitySet="TblReceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblSortie__CodeA__66603565" Association="Self.FK__TblSortie__CodeA__66603565">
+      <End Role="TblArticles" EntitySet="TblArticles" />
+      <End Role="TblSortie" EntitySet="TblSorties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblStock_TblArticles" Association="Self.FK_TblStock_TblArticles">
+      <End Role="TblArticles" EntitySet="TblArticles" />
+      <End Role="TblStock" EntitySet="TblStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblComman__CodeF__48CFD27E" Association="Self.FK__TblComman__CodeF__48CFD27E">
+      <End Role="TblFornisseurs" EntitySet="TblFornisseurs" />
+      <End Role="TblCommandes" EntitySet="TblCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblLigneC__CodeC__5070F446" Association="Self.FK__TblLigneC__CodeC__5070F446">
+      <End Role="TblCommandes" EntitySet="TblCommandes" />
+      <End Role="TblLigneCommandes" EntitySet="TblLigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblRecept__CodeC__619B8048" Association="Self.FK__TblRecept__CodeC__619B8048">
+      <End Role="TblCommandes" EntitySet="TblCommandes" />
+      <End Role="TblReceptions" EntitySet="TblReceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblEntrée__CodeF__6C190EBB" Association="Self.FK__TblEntrée__CodeF__6C190EBB">
+      <End Role="TblFornisseurs" EntitySet="TblFornisseurs" />
+      <End Role="TblEntrée" EntitySet="TblEntrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblEntrée__CodeM__6B24EA82" Association="Self.FK__TblEntrée__CodeM__6B24EA82">
+      <End Role="TblMagasins" EntitySet="TblMagasins" />
+      <End Role="TblEntrée" EntitySet="TblEntrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblTransf__C_Eta__5AEE82B9" Association="Self.FK__TblTransf__C_Eta__5AEE82B9">
+      <End Role="TblEtablissement" EntitySet="TblEtablissements" />
+      <End Role="TblTransferts" EntitySet="TblTransferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblRecept__CodeF__6383C8BA" Association="Self.FK__TblRecept__CodeF__6383C8BA">
+      <End Role="TblFornisseurs" EntitySet="TblFornisseurs" />
+      <End Role="TblReceptions" EntitySet="TblReceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblLignes__CodeT__5EBF139D" Association="Self.FK__TblLignes__CodeT__5EBF139D">
+      <End Role="TblTransferts" EntitySet="TblTransferts" />
+      <End Role="TblLignesTransfere" EntitySet="TblLignesTransferes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblSortie__CodeM__68487DD7" Association="Self.FK__TblSortie__CodeM__68487DD7">
+      <End Role="TblMagasins" EntitySet="TblMagasins" />
+      <End Role="TblSortie" EntitySet="TblSorties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblTransf__C_Mag__59063A47" Association="Self.FK__TblTransf__C_Mag__59063A47">
+      <End Role="TblMagasins" EntitySet="TblMagasins" />
+      <End Role="TblTransferts" EntitySet="TblTransferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblStock_TblMagasins" Association="Self.FK_TblStock_TblMagasins">
+      <End Role="TblMagasins" EntitySet="TblMagasins" />
+      <End Role="TblStock" EntitySet="TblStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblSortie__CodeP__6754599E" Association="Self.FK__TblSortie__CodeP__6754599E">
+      <End Role="TblPointConsommation" EntitySet="TblPointConsommations" />
+      <End Role="TblSortie" EntitySet="TblSorties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblTransf__C_Poi__59FA5E80" Association="Self.FK__TblTransf__C_Poi__59FA5E80">
+      <End Role="TblPointConsommation" EntitySet="TblPointConsommations" />
+      <End Role="TblTransferts" EntitySet="TblTransferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblTransf__TypeT__5812160E" Association="Self.FK__TblTransf__TypeT__5812160E">
+      <End Role="TblTypesTransferts" EntitySet="TblTypesTransferts" />
+      <End Role="TblTransferts" EntitySet="TblTransferts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

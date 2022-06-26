@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionMagasinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GestionMagasinEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="GestionMagasinModel.Article" />
+    <EntitySet Name="Authentifications" EntityType="GestionMagasinModel.Authentification" />
+    <EntitySet Name="Categories" EntityType="GestionMagasinModel.Categorie" />
+    <EntitySet Name="Commandes" EntityType="GestionMagasinModel.Commande" />
+    <EntitySet Name="Entrée" EntityType="GestionMagasinModel.Entrée" />
+    <EntitySet Name="EtabArts" EntityType="GestionMagasinModel.EtabArt" />
+    <EntitySet Name="Etablissements" EntityType="GestionMagasinModel.Etablissement" />
+    <EntitySet Name="Familles" EntityType="GestionMagasinModel.Famille" />
+    <EntitySet Name="Fornisseurs" EntityType="GestionMagasinModel.Fornisseur" />
+    <EntitySet Name="Inventaires" EntityType="GestionMagasinModel.Inventaire" />
+    <EntitySet Name="LigneCommandes" EntityType="GestionMagasinModel.LigneCommande" />
+    <EntitySet Name="LignesTransferes" EntityType="GestionMagasinModel.LignesTransfere" />
+    <EntitySet Name="Magasins" EntityType="GestionMagasinModel.Magasin" />
+    <EntitySet Name="PointConsommations" EntityType="GestionMagasinModel.PointConsommation" />
+    <EntitySet Name="Receptions" EntityType="GestionMagasinModel.Reception" />
+    <EntitySet Name="Sorties" EntityType="GestionMagasinModel.Sortie" />
+    <EntitySet Name="Stocks" EntityType="GestionMagasinModel.Stock" />
+    <EntitySet Name="Transferts" EntityType="GestionMagasinModel.Transfert" />
+    <EntitySet Name="TypesTransferts" EntityType="GestionMagasinModel.TypesTransfert" />
+    <EntitySet Name="UnitéMesures" EntityType="GestionMagasinModel.UnitéMesures" />
+    <AssociationSet Name="FK__Articles__Catego__4E88ABD4" Association="GestionMagasinModel.FK__Articles__Catego__4E88ABD4">
+      <End Role="Categorie" EntitySet="Categories" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__Famile__4D94879B" Association="GestionMagasinModel.FK__Articles__Famile__4D94879B">
+      <End Role="Famille" EntitySet="Familles" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__Unite__4CA06362" Association="GestionMagasinModel.FK__Articles__Unite__4CA06362">
+      <End Role="UnitéMesures" EntitySet="UnitéMesures" />
+      <End Role="Article" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrée__CodeArti__6A30C649" Association="GestionMagasinModel.FK__Entrée__CodeArti__6A30C649">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Entrée" EntitySet="Entrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EtabArt__codeArt__17036CC0" Association="GestionMagasinModel.FK__EtabArt__codeArt__17036CC0">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="EtabArt" EntitySet="EtabArts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LigneComm__CodeA__52593CB8" Association="GestionMagasinModel.FK__LigneComm__CodeA__52593CB8">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="LigneCommande" EntitySet="LigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LignesTra__CodeA__5BE2A6F2" Association="GestionMagasinModel.FK__LignesTra__CodeA__5BE2A6F2">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="LignesTransfere" EntitySet="LignesTransferes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reception__CodeA__60A75C0F" Association="GestionMagasinModel.FK__Reception__CodeA__60A75C0F">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Reception" EntitySet="Receptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sortie__CodeArti__6477ECF3" Association="GestionMagasinModel.FK__Sortie__CodeArti__6477ECF3">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Sortie" EntitySet="Sorties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stocks__CodeArti__6E01572D" Association="GestionMagasinModel.FK__Stocks__CodeArti__6E01572D">
+      <End Role="Article" EntitySet="Articles" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Commandes__CodeF__48CFD27E" Association="GestionMagasinModel.FK__Commandes__CodeF__48CFD27E">
+      <End Role="Fornisseur" EntitySet="Fornisseurs" />
+      <End Role="Commande" EntitySet="Commandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LigneComm__CodeC__5165187F" Association="GestionMagasinModel.FK__LigneComm__CodeC__5165187F">
+      <End Role="Commande" EntitySet="Commandes" />
+      <End Role="LigneCommande" EntitySet="LigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reception__CodeC__5FB337D6" Association="GestionMagasinModel.FK__Reception__CodeC__5FB337D6">
+      <End Role="Commande" EntitySet="Commandes" />
+      <End Role="Reception" EntitySet="Receptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrée__CodeFour__6B24EA82" Association="GestionMagasinModel.FK__Entrée__CodeFour__6B24EA82">
+      <End Role="Fornisseur" EntitySet="Fornisseurs" />
+      <End Role="Entrée" EntitySet="Entrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrée__CodeMaga__693CA210" Association="GestionMagasinModel.FK__Entrée__CodeMaga__693CA210">
+      <End Role="Magasin" EntitySet="Magasins" />
+      <End Role="Entrée" EntitySet="Entrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EtabArt__codeEta__160F4887" Association="GestionMagasinModel.FK__EtabArt__codeEta__160F4887">
+      <End Role="Etablissement" EntitySet="Etablissements" />
+      <End Role="EtabArt" EntitySet="EtabArts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__CodeE__59FA5E80" Association="GestionMagasinModel.FK__Transfert__CodeE__59FA5E80">
+      <End Role="Etablissement" EntitySet="Etablissements" />
+      <End Role="Transfert" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magasins_Magasins" Association="GestionMagasinModel.FK_Magasins_Magasins">
+      <End Role="Etablissement" EntitySet="Etablissements" />
+      <End Role="Magasin" EntitySet="Magasins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PointConsommation_Etablissement" Association="GestionMagasinModel.FK_PointConsommation_Etablissement">
+      <End Role="Etablissement" EntitySet="Etablissements" />
+      <End Role="PointConsommation" EntitySet="PointConsommations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reception__CodeF__619B8048" Association="GestionMagasinModel.FK__Reception__CodeF__619B8048">
+      <End Role="Fornisseur" EntitySet="Fornisseurs" />
+      <End Role="Reception" EntitySet="Receptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LignesTra__CodeT__5CD6CB2B" Association="GestionMagasinModel.FK__LignesTra__CodeT__5CD6CB2B">
+      <End Role="Transfert" EntitySet="Transferts" />
+      <End Role="LignesTransfere" EntitySet="LignesTransferes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sortie__CodeMaga__66603565" Association="GestionMagasinModel.FK__Sortie__CodeMaga__66603565">
+      <End Role="Magasin" EntitySet="Magasins" />
+      <End Role="Sortie" EntitySet="Sorties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stocks__CodeMaga__6EF57B66" Association="GestionMagasinModel.FK__Stocks__CodeMaga__6EF57B66">
+      <End Role="Magasin" EntitySet="Magasins" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__CodeM__5812160E" Association="GestionMagasinModel.FK__Transfert__CodeM__5812160E">
+      <End Role="Magasin" EntitySet="Magasins" />
+      <End Role="Transfert" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sortie__CodePoin__656C112C" Association="GestionMagasinModel.FK__Sortie__CodePoin__656C112C">
+      <End Role="PointConsommation" EntitySet="PointConsommations" />
+      <End Role="Sortie" EntitySet="Sorties" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__CodeP__59063A47" Association="GestionMagasinModel.FK__Transfert__CodeP__59063A47">
+      <End Role="PointConsommation" EntitySet="PointConsommations" />
+      <End Role="Transfert" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__TypeT__571DF1D5" Association="GestionMagasinModel.FK__Transfert__TypeT__571DF1D5">
+      <End Role="TypesTransfert" EntitySet="TypesTransferts" />
+      <End Role="Transfert" EntitySet="Transferts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="CodeArticle" />
+    </Key>
+    <Property Name="CodeArticle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Unite" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Famile" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Categorie" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Categorie1" Relationship="GestionMagasinModel.FK__Articles__Catego__4E88ABD4" FromRole="Article" ToRole="Categorie" />
+    <NavigationProperty Name="Famille" Relationship="GestionMagasinModel.FK__Articles__Famile__4D94879B" FromRole="Article" ToRole="Famille" />
+    <NavigationProperty Name="UnitéMesures" Relationship="GestionMagasinModel.FK__Articles__Unite__4CA06362" FromRole="Article" ToRole="UnitéMesures" />
+    <NavigationProperty Name="Entrée" Relationship="GestionMagasinModel.FK__Entrée__CodeArti__6A30C649" FromRole="Article" ToRole="Entrée" />
+    <NavigationProperty Name="EtabArts" Relationship="GestionMagasinModel.FK__EtabArt__codeArt__17036CC0" FromRole="Article" ToRole="EtabArt" />
+    <NavigationProperty Name="LigneCommandes" Relationship="GestionMagasinModel.FK__LigneComm__CodeA__52593CB8" FromRole="Article" ToRole="LigneCommande" />
+    <NavigationProperty Name="LignesTransferes" Relationship="GestionMagasinModel.FK__LignesTra__CodeA__5BE2A6F2" FromRole="Article" ToRole="LignesTransfere" />
+    <NavigationProperty Name="Receptions" Relationship="GestionMagasinModel.FK__Reception__CodeA__60A75C0F" FromRole="Article" ToRole="Reception" />
+    <NavigationProperty Name="Sorties" Relationship="GestionMagasinModel.FK__Sortie__CodeArti__6477ECF3" FromRole="Article" ToRole="Sortie" />
+    <NavigationProperty Name="Stock" Relationship="GestionMagasinModel.FK__Stocks__CodeArti__6E01572D" FromRole="Article" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Authentification">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="CODE" />
+    </Key>
+    <Property Name="CODE" Type="String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="LIBELLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionMagasinModel.FK__Articles__Catego__4E88ABD4" FromRole="Categorie" ToRole="Article" />
+  </EntityType>
+  <EntityType Name="Commande">
+    <Key>
+      <PropertyRef Name="CodeCommande" />
+    </Key>
+    <Property Name="CodeCommande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeFournisseur" Type="Int32" />
+    <Property Name="DateCommande" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dateLivraison" Type="DateTime" Precision="3" />
+    <Property Name="EtatCommande" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MontantTTC" Type="Double" />
+    <Property Name="Remise" Type="Double" />
+    <Property Name="MontantNet" Type="Double" />
+    <Property Name="TVA" Type="Double" />
+    <Property Name="PortEmballage" Type="Double" />
+    <Property Name="MTVA" Type="Double" />
+    <Property Name="MontantHT" Type="Double" />
+    <NavigationProperty Name="Fornisseur" Relationship="GestionMagasinModel.FK__Commandes__CodeF__48CFD27E" FromRole="Commande" ToRole="Fornisseur" />
+    <NavigationProperty Name="LigneCommandes" Relationship="GestionMagasinModel.FK__LigneComm__CodeC__5165187F" FromRole="Commande" ToRole="LigneCommande" />
+    <NavigationProperty Name="Receptions" Relationship="GestionMagasinModel.FK__Reception__CodeC__5FB337D6" FromRole="Commande" ToRole="Reception" />
+  </EntityType>
+  <EntityType Name="Entrée">
+    <Key>
+      <PropertyRef Name="CodeEntrée" />
+    </Key>
+    <Property Name="CodeEntrée" Type="Int32" Nullable="false" />
+    <Property Name="DateEntrée" Type="DateTime" Precision="3" />
+    <Property Name="QteEntrée" Type="Int32" />
+    <Property Name="PU" Type="Double" />
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="CodeArticle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodeFournisseur" Type="Int32" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__Entrée__CodeArti__6A30C649" FromRole="Entrée" ToRole="Article" />
+    <NavigationProperty Name="Fornisseur" Relationship="GestionMagasinModel.FK__Entrée__CodeFour__6B24EA82" FromRole="Entrée" ToRole="Fornisseur" />
+    <NavigationProperty Name="Magasin" Relationship="GestionMagasinModel.FK__Entrée__CodeMaga__693CA210" FromRole="Entrée" ToRole="Magasin" />
+  </EntityType>
+  <EntityType Name="EtabArt">
+    <Key>
+      <PropertyRef Name="codeEtab" />
+      <PropertyRef Name="codeArt" />
+    </Key>
+    <Property Name="codeEtab" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="codeArt" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="qteStock" Type="Int32" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__EtabArt__codeArt__17036CC0" FromRole="EtabArt" ToRole="Article" />
+    <NavigationProperty Name="Etablissement" Relationship="GestionMagasinModel.FK__EtabArt__codeEta__160F4887" FromRole="EtabArt" ToRole="Etablissement" />
+  </EntityType>
+  <EntityType Name="Etablissement">
+    <Key>
+      <PropertyRef Name="CodeEtab" />
+    </Key>
+    <Property Name="CodeEtab" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TEL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Ville" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EtabArts" Relationship="GestionMagasinModel.FK__EtabArt__codeEta__160F4887" FromRole="Etablissement" ToRole="EtabArt" />
+    <NavigationProperty Name="Transferts" Relationship="GestionMagasinModel.FK__Transfert__CodeE__59FA5E80" FromRole="Etablissement" ToRole="Transfert" />
+    <NavigationProperty Name="Magasins" Relationship="GestionMagasinModel.FK_Magasins_Magasins" FromRole="Etablissement" ToRole="Magasin" />
+    <NavigationProperty Name="PointConsommations" Relationship="GestionMagasinModel.FK_PointConsommation_Etablissement" FromRole="Etablissement" ToRole="PointConsommation" />
+  </EntityType>
+  <EntityType Name="Famille">
+    <Key>
+      <PropertyRef Name="CodeFamile" />
+    </Key>
+    <Property Name="CodeFamile" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Designation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionMagasinModel.FK__Articles__Famile__4D94879B" FromRole="Famille" ToRole="Article" />
+  </EntityType>
+  <EntityType Name="Fornisseur">
+    <Key>
+      <PropertyRef Name="IdFornisseur" />
+    </Key>
+    <Property Name="IdFornisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomComplet" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Adress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RaisonSocial" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Tele" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Ville" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Commandes" Relationship="GestionMagasinModel.FK__Commandes__CodeF__48CFD27E" FromRole="Fornisseur" ToRole="Commande" />
+    <NavigationProperty Name="Entrée" Relationship="GestionMagasinModel.FK__Entrée__CodeFour__6B24EA82" FromRole="Fornisseur" ToRole="Entrée" />
+    <NavigationProperty Name="Receptions" Relationship="GestionMagasinModel.FK__Reception__CodeF__619B8048" FromRole="Fornisseur" ToRole="Reception" />
+  </EntityType>
+  <EntityType Name="Inventaire">
+    <Key>
+      <PropertyRef Name="AnnéeInventaire" />
+    </Key>
+    <Property Name="AnnéeInventaire" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="valeurInventaire" Type="Double" />
+  </EntityType>
+  <EntityType Name="LigneCommande">
+    <Key>
+      <PropertyRef Name="CodeLign" />
+    </Key>
+    <Property Name="CodeLign" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeCommande" Type="Int32" />
+    <Property Name="CodeArticle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MontantHT" Type="Double" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Qte" Type="Int32" />
+    <Property Name="Prix" Type="Double" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__LigneComm__CodeA__52593CB8" FromRole="LigneCommande" ToRole="Article" />
+    <NavigationProperty Name="Commande" Relationship="GestionMagasinModel.FK__LigneComm__CodeC__5165187F" FromRole="LigneCommande" ToRole="Commande" />
+  </EntityType>
+  <EntityType Name="LignesTransfere">
+    <Key>
+      <PropertyRef Name="codeLigne" />
+    </Key>
+    <Property Name="codeLigne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeArticle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodeTrans" Type="Int32" />
+    <Property Name="QuantitéNeuve" Type="Int32" />
+    <Property Name="QuantitéRemploi" Type="Int32" />
+    <Property Name="ValeurTransfert" Type="Double" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__LignesTra__CodeA__5BE2A6F2" FromRole="LignesTransfere" ToRole="Article" />
+    <NavigationProperty Name="Transfert" Relationship="GestionMagasinModel.FK__LignesTra__CodeT__5CD6CB2B" FromRole="LignesTransfere" ToRole="Transfert" />
+  </EntityType>
+  <EntityType Name="Magasin">
+    <Key>
+      <PropertyRef Name="CodeMagasin" />
+    </Key>
+    <Property Name="CodeMagasin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libellé" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="codeEtab" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Entrée" Relationship="GestionMagasinModel.FK__Entrée__CodeMaga__693CA210" FromRole="Magasin" ToRole="Entrée" />
+    <NavigationProperty Name="Etablissement" Relationship="GestionMagasinModel.FK_Magasins_Magasins" FromRole="Magasin" ToRole="Etablissement" />
+    <NavigationProperty Name="Sorties" Relationship="GestionMagasinModel.FK__Sortie__CodeMaga__66603565" FromRole="Magasin" ToRole="Sortie" />
+    <NavigationProperty Name="Stocks" Relationship="GestionMagasinModel.FK__Stocks__CodeMaga__6EF57B66" FromRole="Magasin" ToRole="Stock" />
+    <NavigationProperty Name="Transferts" Relationship="GestionMagasinModel.FK__Transfert__CodeM__5812160E" FromRole="Magasin" ToRole="Transfert" />
+  </EntityType>
+  <EntityType Name="PointConsommation">
+    <Key>
+      <PropertyRef Name="NumCons" />
+    </Key>
+    <Property Name="NumCons" Type="Int32" Nullable="false" />
+    <Property Name="Libellé" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Enseignant" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CodeEtab" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Etablissement" Relationship="GestionMagasinModel.FK_PointConsommation_Etablissement" FromRole="PointConsommation" ToRole="Etablissement" />
+    <NavigationProperty Name="Sorties" Relationship="GestionMagasinModel.FK__Sortie__CodePoin__656C112C" FromRole="PointConsommation" ToRole="Sortie" />
+    <NavigationProperty Name="Transferts" Relationship="GestionMagasinModel.FK__Transfert__CodeP__59063A47" FromRole="PointConsommation" ToRole="Transfert" />
+  </EntityType>
+  <EntityType Name="Reception">
+    <Key>
+      <PropertyRef Name="NumReception" />
+    </Key>
+    <Property Name="NumReception" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodeCommande" Type="Int32" />
+    <Property Name="CodeArticle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodeFournisseur" Type="Int32" />
+    <Property Name="DateReception" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="QTELivree" Type="Int32" />
+    <Property Name="R_A_L" Type="Int32" />
+    <Property Name="Montant" Type="Double" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__Reception__CodeA__60A75C0F" FromRole="Reception" ToRole="Article" />
+    <NavigationProperty Name="Commande" Relationship="GestionMagasinModel.FK__Reception__CodeC__5FB337D6" FromRole="Reception" ToRole="Commande" />
+    <NavigationProperty Name="Fornisseur" Relationship="GestionMagasinModel.FK__Reception__CodeF__619B8048" FromRole="Reception" ToRole="Fornisseur" />
+  </EntityType>
+  <EntityType Name="Sortie">
+    <Key>
+      <PropertyRef Name="CodeSortie" />
+    </Key>
+    <Property Name="CodeSortie" Type="Int32" Nullable="false" />
+    <Property Name="DateSortie" Type="DateTime" Precision="3" />
+    <Property Name="CodeArticle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodePointConsommation" Type="Int32" />
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="QTESortie" Type="Int32" />
+    <Property Name="PU" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__Sortie__CodeArti__6477ECF3" FromRole="Sortie" ToRole="Article" />
+    <NavigationProperty Name="Magasin" Relationship="GestionMagasinModel.FK__Sortie__CodeMaga__66603565" FromRole="Sortie" ToRole="Magasin" />
+    <NavigationProperty Name="PointConsommation" Relationship="GestionMagasinModel.FK__Sortie__CodePoin__656C112C" FromRole="Sortie" ToRole="PointConsommation" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="CodeArticle" />
+    </Key>
+    <Property Name="CodeArticle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="Prix" Type="Double" />
+    <Property Name="QteActuel" Type="Double" />
+    <Property Name="QteEntré" Type="Double" />
+    <Property Name="QteSortie" Type="Double" />
+    <Property Name="ValeurEntré" Type="Double" />
+    <Property Name="ValeurSortie" Type="Double" />
+    <Property Name="RemainingStock" Type="Double" />
+    <Property Name="Statut" Type="Boolean" />
+    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Article" Relationship="GestionMagasinModel.FK__Stocks__CodeArti__6E01572D" FromRole="Stock" ToRole="Article" />
+    <NavigationProperty Name="Magasin" Relationship="GestionMagasinModel.FK__Stocks__CodeMaga__6EF57B66" FromRole="Stock" ToRole="Magasin" />
+  </EntityType>
+  <EntityType Name="Transfert">
+    <Key>
+      <PropertyRef Name="CodeTrans" />
+    </Key>
+    <Property Name="CodeTrans" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTrans" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TypeTransfer" Type="Int32" />
+    <Property Name="CodeMagasin" Type="Int32" />
+    <Property Name="CodePointCons" Type="Int32" />
+    <Property Name="CodeEtablissement" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MontantHT" Type="Double" />
+    <NavigationProperty Name="Etablissement" Relationship="GestionMagasinModel.FK__Transfert__CodeE__59FA5E80" FromRole="Transfert" ToRole="Etablissement" />
+    <NavigationProperty Name="LignesTransferes" Relationship="GestionMagasinModel.FK__LignesTra__CodeT__5CD6CB2B" FromRole="Transfert" ToRole="LignesTransfere" />
+    <NavigationProperty Name="Magasin" Relationship="GestionMagasinModel.FK__Transfert__CodeM__5812160E" FromRole="Transfert" ToRole="Magasin" />
+    <NavigationProperty Name="PointConsommation" Relationship="GestionMagasinModel.FK__Transfert__CodeP__59063A47" FromRole="Transfert" ToRole="PointConsommation" />
+    <NavigationProperty Name="TypesTransfert" Relationship="GestionMagasinModel.FK__Transfert__TypeT__571DF1D5" FromRole="Transfert" ToRole="TypesTransfert" />
+  </EntityType>
+  <EntityType Name="TypesTransfert">
+    <Key>
+      <PropertyRef Name="CodeType" />
+    </Key>
+    <Property Name="CodeType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libellé" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Transferts" Relationship="GestionMagasinModel.FK__Transfert__TypeT__571DF1D5" FromRole="TypesTransfert" ToRole="Transfert" />
+  </EntityType>
+  <EntityType Name="UnitéMesures">
+    <Key>
+      <PropertyRef Name="CodeUnite" />
+    </Key>
+    <Property Name="CodeUnite" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Désignation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Articles" Relationship="GestionMagasinModel.FK__Articles__Unite__4CA06362" FromRole="UnitéMesures" ToRole="Article" />
+  </EntityType>
+  <Association Name="FK__Articles__Catego__4E88ABD4">
+    <End Type="GestionMagasinModel.Categorie" Role="Categorie" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="CODE" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="Categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__Famile__4D94879B">
+    <End Type="GestionMagasinModel.Famille" Role="Famille" Multiplicity="1" />
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Famille">
+        <PropertyRef Name="CodeFamile" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="Famile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__Unite__4CA06362">
+    <End Type="GestionMagasinModel.UnitéMesures" Role="UnitéMesures" Multiplicity="1" />
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitéMesures">
+        <PropertyRef Name="CodeUnite" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="Unite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrée__CodeArti__6A30C649">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Entrée" Role="Entrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Entrée">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EtabArt__codeArt__17036CC0">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="GestionMagasinModel.EtabArt" Role="EtabArt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="EtabArt">
+        <PropertyRef Name="codeArt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LigneComm__CodeA__52593CB8">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.LigneCommande" Role="LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LignesTra__CodeA__5BE2A6F2">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.LignesTransfere" Role="LignesTransfere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="LignesTransfere">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reception__CodeA__60A75C0F">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Reception" Role="Reception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Reception">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sortie__CodeArti__6477ECF3">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Sortie" Role="Sortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Sortie">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stocks__CodeArti__6E01572D">
+    <End Type="GestionMagasinModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="GestionMagasinModel.Stock" Role="Stock" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Commandes__CodeF__48CFD27E">
+    <End Type="GestionMagasinModel.Fornisseur" Role="Fornisseur" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Commande" Role="Commande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornisseur">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="Commande">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LigneComm__CodeC__5165187F">
+    <End Type="GestionMagasinModel.Commande" Role="Commande" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.LigneCommande" Role="LigneCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="CodeCommande" />
+      </Principal>
+      <Dependent Role="LigneCommande">
+        <PropertyRef Name="CodeCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reception__CodeC__5FB337D6">
+    <End Type="GestionMagasinModel.Commande" Role="Commande" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Reception" Role="Reception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commande">
+        <PropertyRef Name="CodeCommande" />
+      </Principal>
+      <Dependent Role="Reception">
+        <PropertyRef Name="CodeCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrée__CodeFour__6B24EA82">
+    <End Type="GestionMagasinModel.Fornisseur" Role="Fornisseur" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Entrée" Role="Entrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornisseur">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="Entrée">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrée__CodeMaga__693CA210">
+    <End Type="GestionMagasinModel.Magasin" Role="Magasin" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Entrée" Role="Entrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasin">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Entrée">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EtabArt__codeEta__160F4887">
+    <End Type="GestionMagasinModel.Etablissement" Role="Etablissement" Multiplicity="1" />
+    <End Type="GestionMagasinModel.EtabArt" Role="EtabArt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="EtabArt">
+        <PropertyRef Name="codeEtab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__CodeE__59FA5E80">
+    <End Type="GestionMagasinModel.Etablissement" Role="Etablissement" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Transfert" Role="Transfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="Transfert">
+        <PropertyRef Name="CodeEtablissement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magasins_Magasins">
+    <End Type="GestionMagasinModel.Etablissement" Role="Etablissement" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Magasin" Role="Magasin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="Magasin">
+        <PropertyRef Name="codeEtab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PointConsommation_Etablissement">
+    <End Type="GestionMagasinModel.Etablissement" Role="Etablissement" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.PointConsommation" Role="PointConsommation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="PointConsommation">
+        <PropertyRef Name="CodeEtab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reception__CodeF__619B8048">
+    <End Type="GestionMagasinModel.Fornisseur" Role="Fornisseur" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Reception" Role="Reception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornisseur">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="Reception">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LignesTra__CodeT__5CD6CB2B">
+    <End Type="GestionMagasinModel.Transfert" Role="Transfert" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.LignesTransfere" Role="LignesTransfere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transfert">
+        <PropertyRef Name="CodeTrans" />
+      </Principal>
+      <Dependent Role="LignesTransfere">
+        <PropertyRef Name="CodeTrans" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sortie__CodeMaga__66603565">
+    <End Type="GestionMagasinModel.Magasin" Role="Magasin" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Sortie" Role="Sortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasin">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Sortie">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stocks__CodeMaga__6EF57B66">
+    <End Type="GestionMagasinModel.Magasin" Role="Magasin" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Stock" Role="Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasin">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__CodeM__5812160E">
+    <End Type="GestionMagasinModel.Magasin" Role="Magasin" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Transfert" Role="Transfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasin">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Transfert">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sortie__CodePoin__656C112C">
+    <End Type="GestionMagasinModel.PointConsommation" Role="PointConsommation" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Sortie" Role="Sortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointConsommation">
+        <PropertyRef Name="NumCons" />
+      </Principal>
+      <Dependent Role="Sortie">
+        <PropertyRef Name="CodePointConsommation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__CodeP__59063A47">
+    <End Type="GestionMagasinModel.PointConsommation" Role="PointConsommation" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Transfert" Role="Transfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointConsommation">
+        <PropertyRef Name="NumCons" />
+      </Principal>
+      <Dependent Role="Transfert">
+        <PropertyRef Name="CodePointCons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__TypeT__571DF1D5">
+    <End Type="GestionMagasinModel.TypesTransfert" Role="TypesTransfert" Multiplicity="0..1" />
+    <End Type="GestionMagasinModel.Transfert" Role="Transfert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesTransfert">
+        <PropertyRef Name="CodeType" />
+      </Principal>
+      <Dependent Role="Transfert">
+        <PropertyRef Name="TypeTransfer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

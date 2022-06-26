@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionMagasinModelStoreContainer" CdmEntityContainer="GestionMagasinEntities">
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Article">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="Categorie" ColumnName="Categorie" />
+          <ScalarProperty Name="Famile" ColumnName="Famile" />
+          <ScalarProperty Name="Unite" ColumnName="Unite" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authentifications">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Authentification">
+        <MappingFragment StoreEntitySet="Authentification">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commandes">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Commande">
+        <MappingFragment StoreEntitySet="Commandes">
+          <ScalarProperty Name="MontantHT" ColumnName="MontantHT" />
+          <ScalarProperty Name="MTVA" ColumnName="MTVA" />
+          <ScalarProperty Name="PortEmballage" ColumnName="PortEmballage" />
+          <ScalarProperty Name="TVA" ColumnName="TVA" />
+          <ScalarProperty Name="MontantNet" ColumnName="MontantNet" />
+          <ScalarProperty Name="Remise" ColumnName="Remise" />
+          <ScalarProperty Name="MontantTTC" ColumnName="MontantTTC" />
+          <ScalarProperty Name="EtatCommande" ColumnName="EtatCommande" />
+          <ScalarProperty Name="dateLivraison" ColumnName="dateLivraison" />
+          <ScalarProperty Name="DateCommande" ColumnName="DateCommande" />
+          <ScalarProperty Name="CodeFournisseur" ColumnName="CodeFournisseur" />
+          <ScalarProperty Name="CodeCommande" ColumnName="CodeCommande" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entrée">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Entrée">
+        <MappingFragment StoreEntitySet="Entrée">
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="CodeFournisseur" ColumnName="CodeFournisseur" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+          <ScalarProperty Name="CodeMagasin" ColumnName="CodeMagasin" />
+          <ScalarProperty Name="PU" ColumnName="PU" />
+          <ScalarProperty Name="QteEntrée" ColumnName="QteEntrée" />
+          <ScalarProperty Name="DateEntrée" ColumnName="DateEntrée" />
+          <ScalarProperty Name="CodeEntrée" ColumnName="CodeEntrée" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EtabArts">
+      <EntityTypeMapping TypeName="GestionMagasinModel.EtabArt">
+        <MappingFragment StoreEntitySet="EtabArt">
+          <ScalarProperty Name="qteStock" ColumnName="qteStock" />
+          <ScalarProperty Name="codeArt" ColumnName="codeArt" />
+          <ScalarProperty Name="codeEtab" ColumnName="codeEtab" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etablissements">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Etablissement">
+        <MappingFragment StoreEntitySet="Etablissement">
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="CodeEtab" ColumnName="CodeEtab" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Familles">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Famille">
+        <MappingFragment StoreEntitySet="Familles">
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="CodeFamile" ColumnName="CodeFamile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fornisseurs">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Fornisseur">
+        <MappingFragment StoreEntitySet="Fornisseurs">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Tele" ColumnName="Tele" />
+          <ScalarProperty Name="RaisonSocial" ColumnName="RaisonSocial" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="NomComplet" ColumnName="NomComplet" />
+          <ScalarProperty Name="IdFornisseur" ColumnName="IdFornisseur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventaires">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Inventaire">
+        <MappingFragment StoreEntitySet="Inventaires">
+          <ScalarProperty Name="valeurInventaire" ColumnName="valeurInventaire" />
+          <ScalarProperty Name="AnnéeInventaire" ColumnName="AnnéeInventaire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LigneCommandes">
+      <EntityTypeMapping TypeName="GestionMagasinModel.LigneCommande">
+        <MappingFragment StoreEntitySet="LigneCommandes">
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Qte" ColumnName="Qte" />
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="MontantHT" ColumnName="MontantHT" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+          <ScalarProperty Name="CodeCommande" ColumnName="CodeCommande" />
+          <ScalarProperty Name="CodeLign" ColumnName="CodeLign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LignesTransferes">
+      <EntityTypeMapping TypeName="GestionMagasinModel.LignesTransfere">
+        <MappingFragment StoreEntitySet="LignesTransfere">
+          <ScalarProperty Name="ValeurTransfert" ColumnName="ValeurTransfert" />
+          <ScalarProperty Name="QuantitéRemploi" ColumnName="QuantitéRemploi" />
+          <ScalarProperty Name="QuantitéNeuve" ColumnName="QuantitéNeuve" />
+          <ScalarProperty Name="CodeTrans" ColumnName="CodeTrans" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+          <ScalarProperty Name="codeLigne" ColumnName="codeLigne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magasins">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Magasin">
+        <MappingFragment StoreEntitySet="Magasins">
+          <ScalarProperty Name="codeEtab" ColumnName="codeEtab" />
+          <ScalarProperty Name="Libellé" ColumnName="Libellé" />
+          <ScalarProperty Name="CodeMagasin" ColumnName="CodeMagasin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointConsommations">
+      <EntityTypeMapping TypeName="GestionMagasinModel.PointConsommation">
+        <MappingFragment StoreEntitySet="PointConsommation">
+          <ScalarProperty Name="CodeEtab" ColumnName="CodeEtab" />
+          <ScalarProperty Name="Enseignant" ColumnName="Enseignant" />
+          <ScalarProperty Name="Libellé" ColumnName="Libellé" />
+          <ScalarProperty Name="NumCons" ColumnName="NumCons" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receptions">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Reception">
+        <MappingFragment StoreEntitySet="Receptions">
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="R_A_L" ColumnName="R_A_L" />
+          <ScalarProperty Name="QTELivree" ColumnName="QTELivree" />
+          <ScalarProperty Name="DateReception" ColumnName="DateReception" />
+          <ScalarProperty Name="CodeFournisseur" ColumnName="CodeFournisseur" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+          <ScalarProperty Name="CodeCommande" ColumnName="CodeCommande" />
+          <ScalarProperty Name="NumReception" ColumnName="NumReception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sorties">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Sortie">
+        <MappingFragment StoreEntitySet="Sortie">
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="PU" ColumnName="PU" />
+          <ScalarProperty Name="QTESortie" ColumnName="QTESortie" />
+          <ScalarProperty Name="CodeMagasin" ColumnName="CodeMagasin" />
+          <ScalarProperty Name="CodePointConsommation" ColumnName="CodePointConsommation" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+          <ScalarProperty Name="DateSortie" ColumnName="DateSortie" />
+          <ScalarProperty Name="CodeSortie" ColumnName="CodeSortie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Stock">
+        <MappingFragment StoreEntitySet="Stocks">
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="Statut" ColumnName="Statut" />
+          <ScalarProperty Name="RemainingStock" ColumnName="RemainingStock" />
+          <ScalarProperty Name="ValeurSortie" ColumnName="ValeurSortie" />
+          <ScalarProperty Name="ValeurEntré" ColumnName="ValeurEntré" />
+          <ScalarProperty Name="QteSortie" ColumnName="QteSortie" />
+          <ScalarProperty Name="QteEntré" ColumnName="QteEntré" />
+          <ScalarProperty Name="QteActuel" ColumnName="QteActuel" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="CodeMagasin" ColumnName="CodeMagasin" />
+          <ScalarProperty Name="CodeArticle" ColumnName="CodeArticle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transferts">
+      <EntityTypeMapping TypeName="GestionMagasinModel.Transfert">
+        <MappingFragment StoreEntitySet="Transferts">
+          <ScalarProperty Name="MontantHT" ColumnName="MontantHT" />
+          <ScalarProperty Name="CodeEtablissement" ColumnName="CodeEtablissement" />
+          <ScalarProperty Name="CodePointCons" ColumnName="CodePointCons" />
+          <ScalarProperty Name="CodeMagasin" ColumnName="CodeMagasin" />
+          <ScalarProperty Name="TypeTransfer" ColumnName="TypeTransfer" />
+          <ScalarProperty Name="DateTrans" ColumnName="DateTrans" />
+          <ScalarProperty Name="CodeTrans" ColumnName="CodeTrans" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesTransferts">
+      <EntityTypeMapping TypeName="GestionMagasinModel.TypesTransfert">
+        <MappingFragment StoreEntitySet="TypesTransferts">
+          <ScalarProperty Name="Libellé" ColumnName="Libellé" />
+          <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitéMesures">
+      <EntityTypeMapping TypeName="GestionMagasinModel.UnitéMesures">
+        <MappingFragment StoreEntitySet="UnitéMesures">
+          <ScalarProperty Name="Désignation" ColumnName="Désignation" />
+          <ScalarProperty Name="CodeUnite" ColumnName="CodeUnite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

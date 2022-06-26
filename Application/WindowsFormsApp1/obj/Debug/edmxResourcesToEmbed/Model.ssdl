@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionMagasinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="CodeArticle" />
+    </Key>
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Unite" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Famile" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Categorie" Type="char" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="Authentification">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="500" />
+    <Property Name="Password" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="CODE" />
+    </Key>
+    <Property Name="CODE" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="LIBELLE" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Commandes">
+    <Key>
+      <PropertyRef Name="CodeCommande" />
+    </Key>
+    <Property Name="CodeCommande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeFournisseur" Type="int" />
+    <Property Name="DateCommande" Type="datetime" Nullable="false" />
+    <Property Name="dateLivraison" Type="datetime" />
+    <Property Name="EtatCommande" Type="varchar" MaxLength="500" />
+    <Property Name="MontantTTC" Type="float" />
+    <Property Name="Remise" Type="float" />
+    <Property Name="MontantNet" Type="float" />
+    <Property Name="TVA" Type="float" />
+    <Property Name="PortEmballage" Type="float" />
+    <Property Name="MTVA" Type="float" />
+    <Property Name="MontantHT" Type="float" />
+  </EntityType>
+  <EntityType Name="Entrée">
+    <Key>
+      <PropertyRef Name="CodeEntrée" />
+    </Key>
+    <Property Name="CodeEntrée" Type="int" Nullable="false" />
+    <Property Name="DateEntrée" Type="datetime" />
+    <Property Name="QteEntrée" Type="int" />
+    <Property Name="PU" Type="float" />
+    <Property Name="CodeMagasin" Type="int" />
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" />
+    <Property Name="CodeFournisseur" Type="int" />
+    <Property Name="Observation" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="EtabArt">
+    <Key>
+      <PropertyRef Name="codeEtab" />
+      <PropertyRef Name="codeArt" />
+    </Key>
+    <Property Name="codeEtab" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="codeArt" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="qteStock" Type="int" />
+  </EntityType>
+  <EntityType Name="Etablissement">
+    <Key>
+      <PropertyRef Name="CodeEtab" />
+    </Key>
+    <Property Name="CodeEtab" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="500" />
+    <Property Name="Adresse" Type="varchar" MaxLength="500" />
+    <Property Name="TEL" Type="varchar" MaxLength="500" />
+    <Property Name="Ville" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Familles">
+    <Key>
+      <PropertyRef Name="CodeFamile" />
+    </Key>
+    <Property Name="CodeFamile" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fornisseurs">
+    <Key>
+      <PropertyRef Name="IdFornisseur" />
+    </Key>
+    <Property Name="IdFornisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomComplet" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="RaisonSocial" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Tele" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Fax" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Ville" Type="varchar" MaxLength="500" />
+    <Property Name="Email" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inventaires">
+    <Key>
+      <PropertyRef Name="AnnéeInventaire" />
+    </Key>
+    <Property Name="AnnéeInventaire" Type="datetime" Nullable="false" />
+    <Property Name="valeurInventaire" Type="float" />
+  </EntityType>
+  <EntityType Name="LigneCommandes">
+    <Key>
+      <PropertyRef Name="CodeLign" />
+    </Key>
+    <Property Name="CodeLign" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeCommande" Type="int" />
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" />
+    <Property Name="MontantHT" Type="float" />
+    <Property Name="Observation" Type="varchar" MaxLength="500" />
+    <Property Name="Qte" Type="int" />
+    <Property Name="Prix" Type="float" />
+  </EntityType>
+  <EntityType Name="LignesTransfere">
+    <Key>
+      <PropertyRef Name="codeLigne" />
+    </Key>
+    <Property Name="codeLigne" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" />
+    <Property Name="CodeTrans" Type="int" />
+    <Property Name="QuantitéNeuve" Type="int" />
+    <Property Name="QuantitéRemploi" Type="int" />
+    <Property Name="ValeurTransfert" Type="float" />
+  </EntityType>
+  <EntityType Name="Magasins">
+    <Key>
+      <PropertyRef Name="CodeMagasin" />
+    </Key>
+    <Property Name="CodeMagasin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Libellé" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="codeEtab" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PointConsommation">
+    <Key>
+      <PropertyRef Name="NumCons" />
+    </Key>
+    <Property Name="NumCons" Type="int" Nullable="false" />
+    <Property Name="Libellé" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Enseignant" Type="varchar" MaxLength="500" />
+    <Property Name="CodeEtab" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Receptions">
+    <Key>
+      <PropertyRef Name="NumReception" />
+    </Key>
+    <Property Name="NumReception" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeCommande" Type="int" />
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" />
+    <Property Name="CodeFournisseur" Type="int" />
+    <Property Name="DateReception" Type="datetime" Nullable="false" />
+    <Property Name="QTELivree" Type="int" />
+    <Property Name="R_A_L" Type="int" />
+    <Property Name="Montant" Type="float" />
+  </EntityType>
+  <EntityType Name="Sortie">
+    <Key>
+      <PropertyRef Name="CodeSortie" />
+    </Key>
+    <Property Name="CodeSortie" Type="int" Nullable="false" />
+    <Property Name="DateSortie" Type="datetime" />
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" />
+    <Property Name="CodePointConsommation" Type="int" />
+    <Property Name="CodeMagasin" Type="int" />
+    <Property Name="QTESortie" Type="int" />
+    <Property Name="PU" Type="money" />
+    <Property Name="Observation" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Stocks">
+    <Key>
+      <PropertyRef Name="CodeArticle" />
+    </Key>
+    <Property Name="CodeArticle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CodeMagasin" Type="int" />
+    <Property Name="Prix" Type="float" />
+    <Property Name="QteActuel" Type="float" />
+    <Property Name="QteEntré" Type="float" />
+    <Property Name="QteSortie" Type="float" />
+    <Property Name="ValeurEntré" Type="float" />
+    <Property Name="ValeurSortie" Type="float" />
+    <Property Name="RemainingStock" Type="float" />
+    <Property Name="Statut" Type="bit" />
+    <Property Name="Observation" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Transferts">
+    <Key>
+      <PropertyRef Name="CodeTrans" />
+    </Key>
+    <Property Name="CodeTrans" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTrans" Type="datetime" Nullable="false" />
+    <Property Name="TypeTransfer" Type="int" />
+    <Property Name="CodeMagasin" Type="int" />
+    <Property Name="CodePointCons" Type="int" />
+    <Property Name="CodeEtablissement" Type="varchar" MaxLength="500" />
+    <Property Name="MontantHT" Type="float" />
+  </EntityType>
+  <EntityType Name="TypesTransferts">
+    <Key>
+      <PropertyRef Name="CodeType" />
+    </Key>
+    <Property Name="CodeType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Libellé" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitéMesures">
+    <Key>
+      <PropertyRef Name="CodeUnite" />
+    </Key>
+    <Property Name="CodeUnite" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Désignation" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Articles__Catego__4E88ABD4">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="CODE" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="Categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__Famile__4D94879B">
+    <End Role="Familles" Type="Self.Familles" Multiplicity="1" />
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Familles">
+        <PropertyRef Name="CodeFamile" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="Famile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articles__Unite__4CA06362">
+    <End Role="UnitéMesures" Type="Self.UnitéMesures" Multiplicity="1" />
+    <End Role="Articles" Type="Self.Articles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitéMesures">
+        <PropertyRef Name="CodeUnite" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="Unite" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Commandes__CodeF__48CFD27E">
+    <End Role="Fornisseurs" Type="Self.Fornisseurs" Multiplicity="0..1" />
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornisseurs">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="Commandes">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrée__CodeArti__6A30C649">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+    <End Role="Entrée" Type="Self.Entrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Entrée">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrée__CodeFour__6B24EA82">
+    <End Role="Fornisseurs" Type="Self.Fornisseurs" Multiplicity="0..1" />
+    <End Role="Entrée" Type="Self.Entrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornisseurs">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="Entrée">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Entrée__CodeMaga__693CA210">
+    <End Role="Magasins" Type="Self.Magasins" Multiplicity="0..1" />
+    <End Role="Entrée" Type="Self.Entrée" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Entrée">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EtabArt__codeArt__17036CC0">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+    <End Role="EtabArt" Type="Self.EtabArt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="EtabArt">
+        <PropertyRef Name="codeArt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EtabArt__codeEta__160F4887">
+    <End Role="Etablissement" Type="Self.Etablissement" Multiplicity="1" />
+    <End Role="EtabArt" Type="Self.EtabArt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="EtabArt">
+        <PropertyRef Name="codeEtab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LigneComm__CodeA__52593CB8">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+    <End Role="LigneCommandes" Type="Self.LigneCommandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="LigneCommandes">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LigneComm__CodeC__5165187F">
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="0..1" />
+    <End Role="LigneCommandes" Type="Self.LigneCommandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commandes">
+        <PropertyRef Name="CodeCommande" />
+      </Principal>
+      <Dependent Role="LigneCommandes">
+        <PropertyRef Name="CodeCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LignesTra__CodeA__5BE2A6F2">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+    <End Role="LignesTransfere" Type="Self.LignesTransfere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="LignesTransfere">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LignesTra__CodeT__5CD6CB2B">
+    <End Role="Transferts" Type="Self.Transferts" Multiplicity="0..1" />
+    <End Role="LignesTransfere" Type="Self.LignesTransfere" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transferts">
+        <PropertyRef Name="CodeTrans" />
+      </Principal>
+      <Dependent Role="LignesTransfere">
+        <PropertyRef Name="CodeTrans" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reception__CodeA__60A75C0F">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+    <End Role="Receptions" Type="Self.Receptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Receptions">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reception__CodeC__5FB337D6">
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="0..1" />
+    <End Role="Receptions" Type="Self.Receptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commandes">
+        <PropertyRef Name="CodeCommande" />
+      </Principal>
+      <Dependent Role="Receptions">
+        <PropertyRef Name="CodeCommande" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reception__CodeF__619B8048">
+    <End Role="Fornisseurs" Type="Self.Fornisseurs" Multiplicity="0..1" />
+    <End Role="Receptions" Type="Self.Receptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fornisseurs">
+        <PropertyRef Name="IdFornisseur" />
+      </Principal>
+      <Dependent Role="Receptions">
+        <PropertyRef Name="CodeFournisseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sortie__CodeArti__6477ECF3">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+    <End Role="Sortie" Type="Self.Sortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Sortie">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sortie__CodeMaga__66603565">
+    <End Role="Magasins" Type="Self.Magasins" Multiplicity="0..1" />
+    <End Role="Sortie" Type="Self.Sortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Sortie">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sortie__CodePoin__656C112C">
+    <End Role="PointConsommation" Type="Self.PointConsommation" Multiplicity="0..1" />
+    <End Role="Sortie" Type="Self.Sortie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointConsommation">
+        <PropertyRef Name="NumCons" />
+      </Principal>
+      <Dependent Role="Sortie">
+        <PropertyRef Name="CodePointConsommation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stocks__CodeArti__6E01572D">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="1" />
+    <End Role="Stocks" Type="Self.Stocks" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="CodeArticle" />
+      </Principal>
+      <Dependent Role="Stocks">
+        <PropertyRef Name="CodeArticle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stocks__CodeMaga__6EF57B66">
+    <End Role="Magasins" Type="Self.Magasins" Multiplicity="0..1" />
+    <End Role="Stocks" Type="Self.Stocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Stocks">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__CodeE__59FA5E80">
+    <End Role="Etablissement" Type="Self.Etablissement" Multiplicity="0..1" />
+    <End Role="Transferts" Type="Self.Transferts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="Transferts">
+        <PropertyRef Name="CodeEtablissement" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__CodeM__5812160E">
+    <End Role="Magasins" Type="Self.Magasins" Multiplicity="0..1" />
+    <End Role="Transferts" Type="Self.Transferts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magasins">
+        <PropertyRef Name="CodeMagasin" />
+      </Principal>
+      <Dependent Role="Transferts">
+        <PropertyRef Name="CodeMagasin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__CodeP__59063A47">
+    <End Role="PointConsommation" Type="Self.PointConsommation" Multiplicity="0..1" />
+    <End Role="Transferts" Type="Self.Transferts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PointConsommation">
+        <PropertyRef Name="NumCons" />
+      </Principal>
+      <Dependent Role="Transferts">
+        <PropertyRef Name="CodePointCons" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfert__TypeT__571DF1D5">
+    <End Role="TypesTransferts" Type="Self.TypesTransferts" Multiplicity="0..1" />
+    <End Role="Transferts" Type="Self.Transferts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesTransferts">
+        <PropertyRef Name="CodeType" />
+      </Principal>
+      <Dependent Role="Transferts">
+        <PropertyRef Name="TypeTransfer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Magasins_Magasins">
+    <End Role="Etablissement" Type="Self.Etablissement" Multiplicity="0..1" />
+    <End Role="Magasins" Type="Self.Magasins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="Magasins">
+        <PropertyRef Name="codeEtab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PointConsommation_Etablissement">
+    <End Role="Etablissement" Type="Self.Etablissement" Multiplicity="0..1" />
+    <End Role="PointConsommation" Type="Self.PointConsommation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etablissement">
+        <PropertyRef Name="CodeEtab" />
+      </Principal>
+      <Dependent Role="PointConsommation">
+        <PropertyRef Name="CodeEtab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GestionMagasinModelStoreContainer">
+    <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Authentification" EntityType="Self.Authentification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Commandes" EntityType="Self.Commandes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entrée" EntityType="Self.Entrée" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EtabArt" EntityType="Self.EtabArt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Etablissement" EntityType="Self.Etablissement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Familles" EntityType="Self.Familles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fornisseurs" EntityType="Self.Fornisseurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventaires" EntityType="Self.Inventaires" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LigneCommandes" EntityType="Self.LigneCommandes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LignesTransfere" EntityType="Self.LignesTransfere" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Magasins" EntityType="Self.Magasins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PointConsommation" EntityType="Self.PointConsommation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receptions" EntityType="Self.Receptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sortie" EntityType="Self.Sortie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transferts" EntityType="Self.Transferts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypesTransferts" EntityType="Self.TypesTransferts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitéMesures" EntityType="Self.UnitéMesures" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Articles__Catego__4E88ABD4" Association="Self.FK__Articles__Catego__4E88ABD4">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__Famile__4D94879B" Association="Self.FK__Articles__Famile__4D94879B">
+      <End Role="Familles" EntitySet="Familles" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articles__Unite__4CA06362" Association="Self.FK__Articles__Unite__4CA06362">
+      <End Role="UnitéMesures" EntitySet="UnitéMesures" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Commandes__CodeF__48CFD27E" Association="Self.FK__Commandes__CodeF__48CFD27E">
+      <End Role="Fornisseurs" EntitySet="Fornisseurs" />
+      <End Role="Commandes" EntitySet="Commandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrée__CodeArti__6A30C649" Association="Self.FK__Entrée__CodeArti__6A30C649">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Entrée" EntitySet="Entrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrée__CodeFour__6B24EA82" Association="Self.FK__Entrée__CodeFour__6B24EA82">
+      <End Role="Fornisseurs" EntitySet="Fornisseurs" />
+      <End Role="Entrée" EntitySet="Entrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Entrée__CodeMaga__693CA210" Association="Self.FK__Entrée__CodeMaga__693CA210">
+      <End Role="Magasins" EntitySet="Magasins" />
+      <End Role="Entrée" EntitySet="Entrée" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EtabArt__codeArt__17036CC0" Association="Self.FK__EtabArt__codeArt__17036CC0">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="EtabArt" EntitySet="EtabArt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EtabArt__codeEta__160F4887" Association="Self.FK__EtabArt__codeEta__160F4887">
+      <End Role="Etablissement" EntitySet="Etablissement" />
+      <End Role="EtabArt" EntitySet="EtabArt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LigneComm__CodeA__52593CB8" Association="Self.FK__LigneComm__CodeA__52593CB8">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="LigneCommandes" EntitySet="LigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LigneComm__CodeC__5165187F" Association="Self.FK__LigneComm__CodeC__5165187F">
+      <End Role="Commandes" EntitySet="Commandes" />
+      <End Role="LigneCommandes" EntitySet="LigneCommandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LignesTra__CodeA__5BE2A6F2" Association="Self.FK__LignesTra__CodeA__5BE2A6F2">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="LignesTransfere" EntitySet="LignesTransfere" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LignesTra__CodeT__5CD6CB2B" Association="Self.FK__LignesTra__CodeT__5CD6CB2B">
+      <End Role="Transferts" EntitySet="Transferts" />
+      <End Role="LignesTransfere" EntitySet="LignesTransfere" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reception__CodeA__60A75C0F" Association="Self.FK__Reception__CodeA__60A75C0F">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Receptions" EntitySet="Receptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reception__CodeC__5FB337D6" Association="Self.FK__Reception__CodeC__5FB337D6">
+      <End Role="Commandes" EntitySet="Commandes" />
+      <End Role="Receptions" EntitySet="Receptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reception__CodeF__619B8048" Association="Self.FK__Reception__CodeF__619B8048">
+      <End Role="Fornisseurs" EntitySet="Fornisseurs" />
+      <End Role="Receptions" EntitySet="Receptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sortie__CodeArti__6477ECF3" Association="Self.FK__Sortie__CodeArti__6477ECF3">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Sortie" EntitySet="Sortie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sortie__CodeMaga__66603565" Association="Self.FK__Sortie__CodeMaga__66603565">
+      <End Role="Magasins" EntitySet="Magasins" />
+      <End Role="Sortie" EntitySet="Sortie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sortie__CodePoin__656C112C" Association="Self.FK__Sortie__CodePoin__656C112C">
+      <End Role="PointConsommation" EntitySet="PointConsommation" />
+      <End Role="Sortie" EntitySet="Sortie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stocks__CodeArti__6E01572D" Association="Self.FK__Stocks__CodeArti__6E01572D">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Stocks" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stocks__CodeMaga__6EF57B66" Association="Self.FK__Stocks__CodeMaga__6EF57B66">
+      <End Role="Magasins" EntitySet="Magasins" />
+      <End Role="Stocks" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__CodeE__59FA5E80" Association="Self.FK__Transfert__CodeE__59FA5E80">
+      <End Role="Etablissement" EntitySet="Etablissement" />
+      <End Role="Transferts" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__CodeM__5812160E" Association="Self.FK__Transfert__CodeM__5812160E">
+      <End Role="Magasins" EntitySet="Magasins" />
+      <End Role="Transferts" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__CodeP__59063A47" Association="Self.FK__Transfert__CodeP__59063A47">
+      <End Role="PointConsommation" EntitySet="PointConsommation" />
+      <End Role="Transferts" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfert__TypeT__571DF1D5" Association="Self.FK__Transfert__TypeT__571DF1D5">
+      <End Role="TypesTransferts" EntitySet="TypesTransferts" />
+      <End Role="Transferts" EntitySet="Transferts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Magasins_Magasins" Association="Self.FK_Magasins_Magasins">
+      <End Role="Etablissement" EntitySet="Etablissement" />
+      <End Role="Magasins" EntitySet="Magasins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PointConsommation_Etablissement" Association="Self.FK_PointConsommation_Etablissement">
+      <End Role="Etablissement" EntitySet="Etablissement" />
+      <End Role="PointConsommation" EntitySet="PointConsommation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

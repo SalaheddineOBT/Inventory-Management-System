@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F07B298A-F09C-4991-8C2A-ADCD1CF53994}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\..\Downloads\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.1.6\lib\net40\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="XanderUI">
+      <HintPath>..\..\..\..\Downloads\xander-ui-dll-main\XanderUI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentification.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexdb.cs" />
+    <Compile Include="GestionCommande\Consultation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCommande\Consultation.Designer.cs">
+      <DependentUpon>Consultation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCommande\CreationCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCommande\CreationCommand.Designer.cs">
+      <DependentUpon>CreationCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCommande\Mise a Commande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCommande\Mise a Commande.Designer.cs">
+      <DependentUpon>Mise a Commande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCommande\ModifierLigne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCommande\ModifierLigne.Designer.cs">
+      <DependentUpon>ModifierLigne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCommande\RechercherCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionCommande\RechercherCommande.Designer.cs">
+      <DependentUpon>RechercherCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMagasin\Gestion de Magasin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMagasin\Gestion de Magasin.Designer.cs">
+      <DependentUpon>Gestion de Magasin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMagasin\GestionStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMagasin\GestionStock.Designer.cs">
+      <DependentUpon>GestionStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Articles\Articles Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Articles\Articles Manager.Designer.cs">
+      <DependentUpon>Articles Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblArticle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblCategorie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblCommande.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblEntrée.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblEtablissement.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblFamille.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblFornisseur.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblLigneCommande.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblLignesTransfere.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblMagasin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblPointConsommation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblReception.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblSortie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblStock.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblTransfert.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblTypesTransfert.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblUnitéMesures.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TblVille.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transferes\DétailsTransfert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transferes\DétailsTransfert.Designer.cs">
+      <DependentUpon>DétailsTransfert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Articles\Gestion Des Articles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Articles\Gestion Des Articles.Designer.cs">
+      <DependentUpon>Gestion Des Articles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Categories\Consultation Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Categories\Consultation Categories.Designer.cs">
+      <DependentUpon>Consultation Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Categories\Gestion Categorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Categories\Gestion Categorie.Designer.cs">
+      <DependentUpon>Gestion Categorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Etablissements\Consultation des Etablissements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Etablissements\Consultation des Etablissements.Designer.cs">
+      <DependentUpon>Consultation des Etablissements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Etablissements\Gestion des Etablissements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Etablissements\Gestion des Etablissements.Designer.cs">
+      <DependentUpon>Gestion des Etablissements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Fournisseurs\Consultation des Fournissurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Fournisseurs\Consultation des Fournissurs.Designer.cs">
+      <DependentUpon>Consultation des Fournissurs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Fournisseurs\Gestion des Fournisseurs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Fournisseurs\Gestion des Fournisseurs.Designer.cs">
+      <DependentUpon>Gestion des Fournisseurs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Points de Consommation\Consoltation Points Consommation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Points de Consommation\Consoltation Points Consommation.Designer.cs">
+      <DependentUpon>Consoltation Points Consommation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMaintenance\Points de Consommation\Gestion des Points Consommation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMaintenance\Points de Consommation\Gestion des Points Consommation.Designer.cs">
+      <DependentUpon>Gestion des Points Consommation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMouvement\Entrées.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMouvement\Entrées.Designer.cs">
+      <DependentUpon>Entrées.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMouvement\Sorties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionMouvement\Sorties.Designer.cs">
+      <DependentUpon>Sorties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reception\ListerCommandeReception.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reception\ListerCommandeReception.Designer.cs">
+      <DependentUpon>ListerCommandeReception.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\ReceptionCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reception\ReceptionCommande.Designer.cs">
+      <DependentUpon>ReceptionCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\Rechercher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reception\Rechercher.Designer.cs">
+      <DependentUpon>Rechercher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transferes\BonTransfert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transferes\BonTransfert.Designer.cs">
+      <DependentUpon>BonTransfert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transferes\Impresion Transfert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transferes\Impresion Transfert.Designer.cs">
+      <DependentUpon>Impresion Transfert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transferes\Rechercher Transfet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transferes\Rechercher Transfet.Designer.cs">
+      <DependentUpon>Rechercher Transfet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transferes\TransfertEtat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransfertEtat.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="GestionCommande\Consultation.resx">
+      <DependentUpon>Consultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCommande\CreationCommand.resx">
+      <DependentUpon>CreationCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCommande\Mise a Commande.resx">
+      <DependentUpon>Mise a Commande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCommande\ModifierLigne.resx">
+      <DependentUpon>ModifierLigne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCommande\RechercherCommande.resx">
+      <DependentUpon>RechercherCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMagasin\Gestion de Magasin.resx">
+      <DependentUpon>Gestion de Magasin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMagasin\GestionStock.resx">
+      <DependentUpon>GestionStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Articles\Articles Manager.resx">
+      <DependentUpon>Articles Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transferes\DétailsTransfert.resx">
+      <DependentUpon>DétailsTransfert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Articles\Gestion Des Articles.resx">
+      <DependentUpon>Gestion Des Articles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Categories\Consultation Categories.resx">
+      <DependentUpon>Consultation Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Categories\Gestion Categorie.resx">
+      <DependentUpon>Gestion Categorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Etablissements\Consultation des Etablissements.resx">
+      <DependentUpon>Consultation des Etablissements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Etablissements\Gestion des Etablissements.resx">
+      <DependentUpon>Gestion des Etablissements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Fournisseurs\Consultation des Fournissurs.resx">
+      <DependentUpon>Consultation des Fournissurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Fournisseurs\Gestion des Fournisseurs.resx">
+      <DependentUpon>Gestion des Fournisseurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Points de Consommation\Consoltation Points Consommation.resx">
+      <DependentUpon>Consoltation Points Consommation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMaintenance\Points de Consommation\Gestion des Points Consommation.resx">
+      <DependentUpon>Gestion des Points Consommation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMouvement\Entrées.resx">
+      <DependentUpon>Entrées.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionMouvement\Sorties.resx">
+      <DependentUpon>Sorties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reception\ListerCommandeReception.resx">
+      <DependentUpon>ListerCommandeReception.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reception\ReceptionCommande.resx">
+      <DependentUpon>ReceptionCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reception\Rechercher.resx">
+      <DependentUpon>Rechercher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transferes\BonTransfert.resx">
+      <DependentUpon>BonTransfert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transferes\Impresion Transfert.resx">
+      <DependentUpon>Impresion Transfert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transferes\Rechercher Transfet.resx">
+      <DependentUpon>Rechercher Transfet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transferes\TransfertEtat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TransfertEtat.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Connexion\" />
+    <Folder Include="Inventaire\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scan_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CajaDescripcion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CajaTexto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BordeSombreado1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CajaDescripcion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CajaTexto1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_69000473-stock-photo-manager-using-digital-tablet-in.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BordeSombreado11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BordeSombreado12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buscar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CajaDescripcion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CajaTexto2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_69000473-stock-photo-manager-using-digital-tablet-in1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Informarcion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\virtual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noveaun_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Del_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edt_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
